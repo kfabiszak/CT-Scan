@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="700.0" maxWidth="902.0" minHeight="700.0" minWidth="902.0" prefHeight="700.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="machine.Controller">
+   <left>
+      <Accordion BorderPane.alignment="CENTER" expandedPane="$loading">
+        <panes>
+            <TitledPane fx:id="loading" animated="false" layoutX="10.0" layoutY="10.0" prefHeight="607.0" prefWidth="163.0" text="Wczytywanie">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="575.0" prefWidth="137.0">
+                     <children>
+                        <TextField fx:id="loc" editable="false" layoutX="7.0" layoutY="8.0" prefHeight="31.0" prefWidth="187.0" promptText="Lokalizacja" />
+                        <Button fx:id="choose" layoutX="37.0" layoutY="69.0" mnemonicParsing="false" onAction="#chooseFile" text="Wybierz z dysku" />
+                        <Button fx:id="load" layoutX="64.0" layoutY="115.0" mnemonicParsing="false" onAction="#loadFile" text="Wczytaj" />
+                        <Label fx:id="errorChoose" layoutX="12.0" layoutY="44.0" prefHeight="22.0" prefWidth="174.0" textAlignment="CENTER" textFill="RED" />
+                     </children></AnchorPane>
+               </content>
+            </TitledPane>
+          <TitledPane animated="false" text="Dane pacjenta">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="name" layoutX="7.0" layoutY="8.0" promptText="Imię" />
+                        <TextField fx:id="surname" layoutX="7.0" layoutY="53.0" promptText="Nazwisko" />
+                        <Button fx:id="save" layoutX="69.0" layoutY="257.0" mnemonicParsing="false" onAction="#saveInfo" text="Zapisz" />
+                        <ChoiceBox fx:id="sex" layoutX="7.0" layoutY="98.0" prefHeight="31.0" prefWidth="187.0" />
+                        <DatePicker fx:id="birthDate" layoutX="7.0" layoutY="143.0" prefWidth="187.0" promptText="Data urodzenia" />
+                        <Label fx:id="errorInfo" layoutX="7.0" layoutY="229.0" prefHeight="21.0" prefWidth="187.0" textAlignment="CENTER" textFill="RED" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Eksportuj do DICOM">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="date" layoutX="7.0" layoutY="14.0" promptText="Data" />
+                        <TextArea fx:id="comment" layoutX="7.0" layoutY="53.0" prefHeight="400.0" prefWidth="187.0" promptText="Komentarz" />
+                        <Button fx:id="export" layoutX="60.0" layoutY="526.0" mnemonicParsing="false" onAction="#exportDCM" text="Eksportuj" />
+                        <Label fx:id="errorExport" layoutX="7.0" layoutY="461.0" prefHeight="52.0" prefWidth="187.0" textAlignment="CENTER" textFill="RED" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Ustawienia">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="nEmi" layoutX="7.0" layoutY="49.0" />
+                        <TextField fx:id="nDet" layoutX="7.0" layoutY="160.0" />
+                        <TextField fx:id="range" layoutX="7.0" layoutY="269.0" />
+                        <Button fx:id="apply" layoutX="63.0" layoutY="530.0" mnemonicParsing="false" onAction="#applySettings" text="Zastosuj" />
+                        <Slider fx:id="slEmi" layoutX="11.0" layoutY="96.0" max="360" min="1" prefHeight="18.0" prefWidth="179.0" />
+                        <Slider fx:id="slDet" layoutX="11.0" layoutY="203.0" max="360" min="1" prefHeight="18.0" prefWidth="179.0" />
+                        <Slider fx:id="slRan" blockIncrement="1" layoutX="11.0" layoutY="316.0" max="360" min="1" prefHeight="18.0" prefWidth="179.0" />
+                        <Label alignment="CENTER" layoutX="53.0" layoutY="14.0" text="Liczba skanów" />
+                        <Label alignment="CENTER" layoutX="40.0" layoutY="126.0" text="Liczba detektorów" />
+                        <Label alignment="CENTER" layoutX="40.0" layoutY="235.0" text="Rozwartość stożka" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </left>
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox alignment="CENTER" style="-fx-background-color: #000000" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fx:id="iv2" fitHeight="350.0" fitWidth="350.0" onMouseClicked="#showSinogramWindow" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="360.0" layoutY="10.0" style="-fx-background-color: #000000">
+               <children>
+                  <ImageView fx:id="iv1" fitHeight="350.0" fitWidth="350.0" onMouseClicked="#showInputWindow" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" style="-fx-background-color: #000000" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fx:id="iv3" fitHeight="350.0" fitWidth="350.0" onMouseClicked="#showOutputWindow" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="360.0" style="-fx-background-color: #000000" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fx:id="iv4" fitHeight="350.0" fitWidth="350.0" onMouseClicked="#showNormalizedWindow" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
