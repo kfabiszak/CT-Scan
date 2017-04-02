@@ -27,46 +27,6 @@ public class Normalize {
                 }
             }
         }
-//        double filtered[][] = new double[Settings.getnEmi()][Settings.getnDet()];
-//        for(int i = 0; i < Settings.getnEmi(); i++) {
-//            for(int j = 0; j < Settings.getnDet(); j++) {
-//                for(int k = 0; k < Settings.getnDet(); k++) {
-//                    if(k != j) {
-//                        if (k % 2 == 1) {
-//                            filtered[i][j] += Sinogram.getSinogram()[i][k] * ((-4 / Math.PI) / (k * k));
-////
-//                        }
-//                    } else {
-//                        filtered[i][j] = Sinogram.getSinogram()[i][j];
-//                    }
-//                    System.out.println(filtered[i][j]);
-//                }
-//            }
-//        }
-//
-//        for(int i = 0; i < Settings.getnEmi(); i++) {
-//            for(int j = 0; j < Settings.getnDet(); j++) {
-//                if(filtered[i][j] < minPixel) {
-//                    minPixel = filtered[i][j];
-//                }
-//                if(filtered[i][j] > maxPixel) {
-//                    maxPixel = filtered[i][j];
-//                }
-//            }
-//            System.out.println(minPixel);
-//        }
-//
-//        for(int i = 0; i < Settings.getnEmi(); i++) {
-//            for(int j = 0; j < Settings.getnDet(); j++) {
-//                filtered[i][j] = ((filtered[i][j] - minPixel) / (maxPixel - minPixel)) * 255.0;
-//                Graphics.getRaster().getPixel(i, j, pixels);
-//                hsv = Brenesham.rgb2hsv(pixels[0], pixels[1], pixels[2]);
-//                ww = Brenesham.hsv2rgb(hsv[0], hsv[1], hsv[2]);
-//                Arrays.fill(ww, filtered[i][j]);
-//                Sinogram.setrSinogramPix(j, i, ww);
-//            }
-//            Sinogram.showSinogram();
-//        }
 
         for(int i = 0; i < Settings.getnEmi(); i++) {
             for(int j = 0; j < Settings.getnDet(); j++) {
