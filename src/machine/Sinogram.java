@@ -48,11 +48,11 @@ public class Sinogram {
 
                 emdet[i][2 * j + 2] = x2;
                 emdet[i][2 * j + 3] = y2;
-                sinogram[i][j] = Brenesham.brenesham(x1, y1, x2, y2, true, 0);
+                sinogram[i][j] = Bresenham.bresenham(x1, y1, x2, y2, true, 0);
 
                 Graphics.getRaster().getPixel(i, j, pixels);
-                hsv = Brenesham.rgb2hsv(pixels[0], pixels[1], pixels[2]);
-                ww = Brenesham.hsv2rgb(hsv[0], hsv[1], hsv[2]);
+                hsv = Bresenham.rgb2hsv(pixels[0], pixels[1], pixels[2]);
+                ww = Bresenham.hsv2rgb(hsv[0], hsv[1], hsv[2]);
                 Arrays.fill(ww, sinogram[i][j]);
                 rSinogram.setPixel(j, i, ww);
 

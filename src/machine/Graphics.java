@@ -35,8 +35,8 @@ public class Graphics {
 
                 Main.getController().showInput(image);
 
-                Brenesham.setCounterOut();
-                Brenesham.setValues();
+                Bresenham.setCounterOut();
+                Bresenham.setValues();
                 Sinogram.initSinogram();
                 Settings.setDelta();
 

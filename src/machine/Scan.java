@@ -35,7 +35,7 @@ public class Scan {
 
         for (int i = 0; i < Settings.getnEmi(); i++) {
             for (int j = 0; j < Settings.getnDet(); j++) {
-                Brenesham.brenesham(emdet[i][2 * j + 2], emdet[i][2 * j + 3], emdet[i][0], emdet[i][1], false, sinogram[i][j]);
+                Bresenham.bresenham(emdet[i][2 * j + 2], emdet[i][2 * j + 3], emdet[i][0], emdet[i][1], false, sinogram[i][j]);
             }
             iResult = SwingFXUtils.toFXImage(result, null);
             Main.getController().showResult(iResult);

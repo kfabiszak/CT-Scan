@@ -2,7 +2,7 @@ package machine;
 
 import java.util.Arrays;
 
-public class Brenesham {
+public class Bresenham {
 
     private static double[][] values;
     private static int[][] counterOut;
@@ -66,7 +66,7 @@ public class Brenesham {
     }
 
     //Algorytm Bresenhama - zwraca zsumowana (znormalizowaną) wartosc koloru
-    public static double brenesham(int x1, int y1, int x2, int y2, boolean reading, double wValue) {
+    public static double bresenham(int x1, int y1, int x2, int y2, boolean reading, double wValue) {
         // delta of exact value and rounded value of the dependant variable
         int d = 0;
 
@@ -158,11 +158,11 @@ public class Brenesham {
     }
 
     public static void setValues() {
-        Brenesham.values = new double[Graphics.getWidth()][Graphics.getHeight()];
+        Bresenham.values = new double[Graphics.getWidth()][Graphics.getHeight()];
     }
 
     public static void setCounterOut() {
-        Brenesham.counterOut = new int[Graphics.getWidth()][Graphics.getHeight()];
+        Bresenham.counterOut = new int[Graphics.getWidth()][Graphics.getHeight()];
     }
 
     public static double[][] getValues() {
